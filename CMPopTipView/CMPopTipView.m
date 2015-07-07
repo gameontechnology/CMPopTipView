@@ -530,7 +530,7 @@
 		_targetPoint = CGPointMake(x_p-x_b, 0);
 	}
 	else {
-		y_b = pointerY - fullHeight;
+		y_b = pointerY - fullHeight - _topMargin;
 		_targetPoint = CGPointMake(x_p-x_b, fullHeight-2.0);
 	}
 	
