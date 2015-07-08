@@ -568,7 +568,9 @@
 		[self setNeedsDisplay];
 		
 		if (self.animation == CMPopTipAnimationSlide) {
-            [UIView animateWithDuration:4.0f delay:0 usingSpringWithDamping:0.1 initialSpringVelocity:0.8 options:0 animations:^{
+            [UIView animateWithDuration:4.0f delay:0 usingSpringWithDamping:0.1 initialSpringVelocity:0.8
+                                options:UIViewAnimationOptionAllowUserInteraction
+                             animations:^{
                 self.alpha = 1.0;
                 self.frame = finalFrame;
             } completion:NULL];
