@@ -543,7 +543,7 @@
    	
 	if (animated) {
         if (self.animation == CMPopTipAnimationSlide) {
-            self.alpha = 0.0;
+            self.alpha = 1.0;
             CGRect startFrame = finalFrame;
             startFrame.origin.y += 10;
             self.frame = startFrame;
@@ -568,11 +568,15 @@
 		[self setNeedsDisplay];
 		
 		if (self.animation == CMPopTipAnimationSlide) {
-			[UIView beginAnimations:nil context:nil];
-			self.alpha = 1.0;
-			self.frame = finalFrame;
-			[UIView commitAnimations];
-		}
+            [UIView animateWithDuration:4.0f delay:0 usingSpringWithDamping:0.1 initialSpringVelocity:0.8 options:0 animations:^{
+                self.alpha = 1.0;
+                self.frame = finalFrame;
+            } completion:NULL];
+            //			[UIView beginAnimations:nil context:nil];
+            //			self.alpha = 1.0;
+            //			self.frame = finalFrame;
+            //			[UIView commitAnimations];
+        }
 	}
 	else {
 		// Not animated
@@ -722,9 +726,9 @@
 
         if (hasShadow) {
             self.layer.shadowOffset = CGSizeMake(0, 3);
-            self.layer.shadowRadius = 2.0;
+            self.layer.shadowRadius = 1.0;
             self.layer.shadowColor = [[UIColor blackColor] CGColor];
-            self.layer.shadowOpacity = 0.3;
+            self.layer.shadowOpacity = 0.2;
         } else {
             self.layer.shadowOpacity = 0.0;
         }
